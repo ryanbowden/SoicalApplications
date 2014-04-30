@@ -1,3 +1,10 @@
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\App.g.cs
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\Login.g.cs
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\MainPage.g.cs
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParks.g.cs
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.g.resources
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.Resources.AppResources.resources
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.csproj.GenerateResource.Cache
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\Assets\ApplicationIcon.png
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png
@@ -9,14 +16,6 @@ C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\AppManifest.xaml
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\Properties\WMAppManifest.xml
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\ThemeParkData_Debug_AnyCPU.xap
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\App.g.cs
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\MainPage.g.cs
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.g.resources
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.Resources.AppResources.resources
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.csproj.GenerateResource.Cache
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.dll
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.pdb
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\XapCacheFile.xml
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\Microsoft.WindowsAzure.Mobile.dll
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\Microsoft.WindowsAzure.Mobile.UI.dll
@@ -31,4 +30,6 @@ C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\System.Net.Http.xml
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\Bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.dll
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.pdb
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\XapCacheFile.xml

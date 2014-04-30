@@ -7,34 +7,23 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using ThemeParkData.Resources;
 using Microsoft.WindowsAzure.MobileServices;
-using System.IO;
 using System.IO.IsolatedStorage;
-using System.Text;
-using System.Security.Cryptography;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-
 
 namespace ThemeParkData
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class Login : PhoneApplicationPage
     {
         IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
         // new instance of AMS authenticated user
 
         private MobileServiceUser user;
-
-        // Constructor
-
-        public MainPage()
+        public Login()
         {
             InitializeComponent();
         }
-
-
 
         private async System.Threading.Tasks.Task Authenticate()
         {
@@ -72,11 +61,9 @@ namespace ThemeParkData
 
         async private void but_Facebook(object sender, RoutedEventArgs e)
         {
-
-            // add logic here to check isolated storage/protected class contains valid for userid/token
-            //This will check to see if the person has logged in before
             await Authenticate();
-
         }
+
+        
     }
 }

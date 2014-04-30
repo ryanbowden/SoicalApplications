@@ -59,7 +59,35 @@ namespace ThemeParkData
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+            //Check Whether someone is login
+            RootFrame.Navigating += new NavigatingCancelEventHandler(RootFrame_Navigating);
 
+        }
+
+        void RootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            //Only Care if they are going to MainPage
+            if (e.Uri.ToString().Contains("/MainPage.xaml") != true)
+            {
+                return;
+            }
+            e.Cancel = true;
+
+            RootFrame.Dispatcher.BeginInvoke(delegate
+            {
+                //Check for UserID
+                if (System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings.Contains("UserID"))
+                {
+                    //If it is avaible send them to the site
+                    RootFrame.Navigate(new Uri("/ThemeParks.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    //Send them to Login Page
+                    RootFrame.Navigate(new Uri("/Login.xaml", UriKind.Relative));
+
+                }
+            });
         }
 
         // Code to execute when the application is launching (eg, from Start)

@@ -47,6 +47,8 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Button Content="Facebook" HorizontalAlignment="Left" Margin="139,65,0,0" VerticalAlignment="Top" Click="but_Facebook"/>
+            <TextBlock x:Name="facebookdata" HorizontalAlignment="Left" Margin="96,190,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="209" Width="225"/>
 
         </Grid>
 
