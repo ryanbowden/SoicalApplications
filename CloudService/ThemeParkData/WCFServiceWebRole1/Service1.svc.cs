@@ -12,22 +12,15 @@ namespace WCFServiceWebRole1
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public List<ThemePark> ViewAll()
         {
-            return string.Format("You entered: {0}", value);
-        }
+            using (var context = new ThemeParkDataEntities())
+            {
+                var results = from r in context.ThemeParks
+                              select r;
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
+                return results.ToList();
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
         }
     }
 }
