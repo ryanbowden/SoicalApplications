@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
+using System.Xml.Linq;
 
 namespace ThemeParkData
 {
@@ -19,6 +20,7 @@ namespace ThemeParkData
             InitializeComponent();
             //Get user Settings
             InitializeSettings();
+            //Get theme Park Names
         }
 
         private void InitializeSettings()
@@ -29,13 +31,41 @@ namespace ThemeParkData
             //This will check to see if the person has logged in before
             if (IsolatedStorageSettings.ApplicationSettings.TryGetValue("UserID", out UserID) && IsolatedStorageSettings.ApplicationSettings.TryGetValue("UserName", out UserName))
             {
-                txtblock_name.Text = "Welcome " + UserName;
+                PersonName.Text = "Welcome " + UserName;
             }
             else
             {
                 //Should not get here!
             }
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //get the Theme park Data
+            WebClient ThemeParksNames = new WebClient();
+            ThemeParksNames.DownloadStringCompleted +=ThemeParksNames_DownloadStringCompleted;
+            ThemeParksNames.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewthemeparks?format=xml"));
+
+        }
+
+        void ThemeParksNames_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            //Now need to get that data and display it on the page
+            //check for errors
+            if (e.Error == null)
+            {
+                //No errors have been passed now need to take this file and parse it 
+                //Its in XML format
+                XDocument xdox = XDocument.Parse(e.Result);
+
+            }
+            else
+            {
+                //There an Error
+            }
+        }
+
+
 
     }
 }
