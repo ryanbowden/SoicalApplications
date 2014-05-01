@@ -14,9 +14,9 @@ namespace WCFServiceWebRole1
     {
         [OperationContract]
         [WebInvoke(Method = "GET",
-         ResponseFormat = WebMessageFormat.Json,
+         ResponseFormat = WebMessageFormat.Xml,
          BodyStyle = WebMessageBodyStyle.Bare,
-        UriTemplate = "viewthemeparks?format=json")]
+        UriTemplate = "viewthemeparks?format=xml")]
         ThemeParkList[] viewThemeParksJson();
     }
 
@@ -33,6 +33,7 @@ namespace WCFServiceWebRole1
             set { id = value; }
         }
 
+        [DataMember]
         private string name;
         public string Name
         {
