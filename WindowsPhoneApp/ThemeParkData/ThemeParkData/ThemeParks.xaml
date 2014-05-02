@@ -33,8 +33,8 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Height="80">
-                            <TextBlock Text="{Binding ID}" Foreground="#FFC8AB14" FontSize="35" Width="40" Margin="0,0,0,10" Visibility="Collapsed"/>
-                            <TextBlock Text="{Binding ThemeParkName}" FontSize="35" Width="400" Margin="0,0,0,10" HorizontalAlignment="Left">
+                            <TextBlock x:Name="ID" Text="{Binding ID}" Foreground="#FFC8AB14" FontSize="35" Width="40" Margin="0,0,0,10" Visibility="Collapsed"/>
+                            <TextBlock x:Name="ThemeParkName" Text="{Binding ThemeParkName}" FontSize="35" Width="400" Margin="0,0,0,10" HorizontalAlignment="Left">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
                                 </TextBlock.Foreground>

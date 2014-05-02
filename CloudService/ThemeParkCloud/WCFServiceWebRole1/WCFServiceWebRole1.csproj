@@ -123,7 +123,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <EntityDeploy Include="ThemeParkData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ThemeParkData.Designer.cs</LastGenOutput>

@@ -87,6 +87,20 @@ namespace ThemeParkData
         private void ThemeParkClick(object sender, SelectionChangedEventArgs e)
         {
             //Send to the Page of photos
+            //check is selcted item is null!
+            if (parkList.SelectedItem == null)
+            {
+                //message box removed as everytiem someone came back to this page this fires. so message box would get annoying. 
+                //MessageBox.Show("Error");
+                return;
+            }
+            //we need to get the park ID and Name
+            int parkID = (parkList.SelectedItem as ThemeParksClass).ID;
+            string parkName = (parkList.SelectedItem as ThemeParksClass).ThemeParkName;
+
+            NavigationService.Navigate(new Uri("/photos.xaml?pID=" + parkID + "&pName=" + parkName, UriKind.Relative));
+
+
         }
 
 

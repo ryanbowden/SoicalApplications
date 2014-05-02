@@ -13,7 +13,6 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Core;
 using System.IO;
-using System.Configuration;
 using System.Collections.Specialized;
 
 

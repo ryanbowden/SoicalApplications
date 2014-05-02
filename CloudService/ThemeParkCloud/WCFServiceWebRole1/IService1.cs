@@ -14,13 +14,12 @@ namespace WCFServiceWebRole1
     {
         //get Theme Parks Data
         [OperationContract]
-        [WebInvoke(Method = "GET",
-         ResponseFormat = WebMessageFormat.Xml,
-         BodyStyle = WebMessageBodyStyle.Bare,
-        UriTemplate = "viewthemeparks?format=xml")]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "viewthemeparks?format=xml")]
         ThemeParkList[] viewThemeParksJson();
 
+
         //Upload a Picture to a Theme Park
+        [WebInvoke(Method = "POST", UriTemplate = "evals", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         [OperationContract]
         string UploadImage(string FileName, byte[] sentImage);
     }

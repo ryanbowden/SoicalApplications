@@ -29,5 +29,10 @@
     <ConfigurationSettings>
       <Setting name="AzureStorage" />
     </ConfigurationSettings>
+    <Contents>
+      <Content destination=".\">
+        <SourceDirectory path="C:\Users\Ryan\Documents\GitHub\SoicalApplications\CloudService\ThemeParkCloud\ThemeParkCloud\rcf\Debug\WCFServiceWebRole1Content\" />
+      </Content>
+    </Contents>
   </WebRole>
 </ServiceDefinition>
