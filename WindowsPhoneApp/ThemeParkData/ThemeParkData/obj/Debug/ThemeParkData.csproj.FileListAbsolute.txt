@@ -33,3 +33,4 @@ C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.dll
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.pdb
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\XapCacheFile.xml
+C:\Users\Ryan\Documents\GitHub\SoicalApplications\WindowsPhoneApp\ThemeParkData\ThemeParkData\obj\Debug\ThemeParkData.csprojResolveAssemblyReference.cache

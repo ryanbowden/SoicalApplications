@@ -11,7 +11,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -21,14 +21,29 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel Grid.Row="0" Margin="12,0,0,45">
             <TextBlock x:Name="PersonName" Text="" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Text="Theme Parks" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            
+        <Grid x:Name="ContentPanel" Margin="10,121,12,0" Grid.RowSpan="2">
+            <TextBlock x:Name="txtBlockErrors" TextWrapping="Wrap" Text=""/>
+            <ListBox Height="634" HorizontalAlignment="Left" Name="parkList" VerticalAlignment="Top" Width="456" SelectionChanged="ThemeParkClick">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Height="80">
+                            <TextBlock Text="{Binding ID}" Foreground="#FFC8AB14" FontSize="35" Width="40" Margin="0,0,0,10" Visibility="Collapsed"/>
+                            <TextBlock Text="{Binding ThemeParkName}" FontSize="35" Width="400" Margin="0,0,0,10" HorizontalAlignment="Left">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
         </Grid>
     </Grid>
 </phone:PhoneApplicationPage>

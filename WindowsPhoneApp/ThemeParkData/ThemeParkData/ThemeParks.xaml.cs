@@ -39,7 +39,7 @@ namespace ThemeParkData
             }
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
             //get the Theme park Data
             WebClient ThemeParksNames = new WebClient();
@@ -54,15 +54,39 @@ namespace ThemeParkData
             //check for errors
             if (e.Error == null)
             {
-                //No errors have been passed now need to take this file and parse it 
-                //Its in XML format
-                XDocument xdox = XDocument.Parse(e.Result);
+                try
+                {
+                    //No errors have been passed now need to take this file and parse it 
+                    //Its in XML format
+                    XDocument xdox = XDocument.Parse(e.Result);
+                    //need a list for them to be put in to
+                    List<ThemeParksClass> ParkList = new List<ThemeParksClass>();
+                    XNamespace ns = "http://schemas.datacontract.org/2004/07/WCFServiceWebRole1";
+                    //Now need to get every element and add it to the list
+                    foreach (XElement item in xdox.Descendants(ns + "ThemeParkList"))
+                    {
+                        ThemeParksClass content = new ThemeParksClass();
+                        content.ID = Convert.ToInt32(item.Element(ns+"id").Value);
+                        content.ThemeParkName = item.Element(ns+"name").Value.ToString();
+                        ParkList.Add(content);
+                    }
 
+                    parkList.ItemsSource = ParkList.ToList();
+                }
+                catch (Exception ex)
+                {
+                    txtBlockErrors.Text = ex.Message;
+                }
             }
             else
             {
                 //There an Error
             }
+        }
+
+        private void ThemeParkClick(object sender, SelectionChangedEventArgs e)
+        {
+            //Send to the Page of photos
         }
 
 
