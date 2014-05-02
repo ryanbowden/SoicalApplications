@@ -12,12 +12,17 @@ namespace WCFServiceWebRole1
     [ServiceContract]
     public interface IService1
     {
+        //get Theme Parks Data
         [OperationContract]
         [WebInvoke(Method = "GET",
          ResponseFormat = WebMessageFormat.Xml,
          BodyStyle = WebMessageBodyStyle.Bare,
         UriTemplate = "viewthemeparks?format=xml")]
         ThemeParkList[] viewThemeParksJson();
+
+        //Upload a Picture to a Theme Park
+        [OperationContract]
+        string UploadImage(string FileName, byte[] sentImage);
     }
 
 

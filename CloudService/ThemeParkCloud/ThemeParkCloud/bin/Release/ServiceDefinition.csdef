@@ -26,6 +26,9 @@
     <LocalResources>
       <LocalStorage name="WCFServiceWebRole1.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
     </LocalResources>
+    <ConfigurationSettings>
+      <Setting name="AzureStorage" />
+    </ConfigurationSettings>
     <Contents>
       <Content destination=".\">
         <SourceDirectory path="C:\Users\Ryan\Documents\GitHub\SoicalApplications\CloudService\ThemeParkCloud\ThemeParkCloud\rcf\Release\WCFServiceWebRole1Content\" />

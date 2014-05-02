@@ -43,4 +43,3 @@ C:\Users\Ryan\Documents\GitHub\SoicalApplications\CloudService\ThemeParkCloud\WC
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\CloudService\ThemeParkCloud\WCFServiceWebRole1\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\CloudService\ThemeParkCloud\WCFServiceWebRole1\obj\Debug\WCFServiceWebRole1.dll
 C:\Users\Ryan\Documents\GitHub\SoicalApplications\CloudService\ThemeParkCloud\WCFServiceWebRole1\obj\Debug\WCFServiceWebRole1.pdb
-C:\Users\Ryan\Documents\GitHub\SoicalApplications\CloudService\ThemeParkCloud\WCFServiceWebRole1\obj\Debug\WCFServiceWebRole1.csprojResolveAssemblyReference.cache
