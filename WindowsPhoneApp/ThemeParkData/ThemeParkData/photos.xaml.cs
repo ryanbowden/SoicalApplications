@@ -12,6 +12,10 @@ namespace ThemeParkData
 {
     public partial class photos : PhoneApplicationPage
     {
+        //get/clean these strings
+        int parkID = 0;
+        string parkName = string.Empty;
+
         public photos()
         {
             InitializeComponent();
@@ -56,7 +60,11 @@ namespace ThemeParkData
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //need to send them to add a photo page with details.
+
+            NavigationService.Navigate(new Uri("/TakePhoto.xaml?pID=" + parkID + "&pName=" + parkName, UriKind.Relative));
+
+  
         }
     }
 }
