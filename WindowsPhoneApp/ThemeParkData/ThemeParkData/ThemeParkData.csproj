@@ -110,7 +110,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ThemePark_Service\Reference.cs">
+    <Compile Include="Service References\ThemeParkPhoto_Service\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -154,21 +154,22 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ThemePark_Service\Service1.wsdl" />
-    <None Include="Service References\ThemePark_Service\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ThemePark_Service\Service11.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ThemePark_Service\Service12.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ThemePark_Service\ThemeParkData.ThemePark_Service.ThemeParkList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <Content Include="Images\add.png" />
+    <None Include="Service References\ThemeParkPhoto_Service\Service1.disco" />
+    <None Include="Service References\ThemeParkPhoto_Service\configuration91.svcinfo" />
+    <None Include="Service References\ThemeParkPhoto_Service\configuration.svcinfo" />
+    <None Include="Service References\ThemeParkPhoto_Service\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ThemeParkPhoto_Service\Service1.wsdl" />
+    <None Include="Service References\ThemeParkPhoto_Service\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ThemeParkPhoto_Service\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
@@ -190,13 +191,6 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ThemePark_Service\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ThemePark_Service\configuration.svcinfo" />
-    <None Include="Service References\ThemePark_Service\configuration91.svcinfo" />
-    <None Include="Service References\ThemePark_Service\Service1.disco" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -231,7 +225,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ThemePark_Service\" />
+    <WCFMetadataStorage Include="Service References\ThemeParkPhoto_Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

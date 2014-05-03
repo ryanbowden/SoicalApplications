@@ -27,10 +27,6 @@ namespace ThemeParkData
             //This is to get the data that was passed from the home screen to which song to use!
             base.OnNavigatedTo(e);
 
-            //get/clean these strings
-            int parkID = 0;
-            string parkName = string.Empty;
-
             if ((NavigationContext.QueryString["pID"] == string.Empty) || (NavigationContext.QueryString["pName"] == string.Empty))
             {
                 //if not show message box. 

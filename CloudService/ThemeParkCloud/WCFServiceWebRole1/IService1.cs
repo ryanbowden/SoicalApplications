@@ -17,11 +17,6 @@ namespace WCFServiceWebRole1
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "viewthemeparks?format=xml")]
         ThemeParkList[] viewThemeParksJson();
 
-
-        //Upload a Picture to a Theme Park
-        [WebInvoke(Method = "POST", UriTemplate = "evals", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        [OperationContract]
-        string UploadImage(string FileName, byte[] sentImage);
     }
 
 

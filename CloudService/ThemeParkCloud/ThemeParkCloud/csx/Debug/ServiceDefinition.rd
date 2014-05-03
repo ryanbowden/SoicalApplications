@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ThemeParkCloud" generation="1" functional="0" release="0" Id="3f0ff4fb-5aa3-4f7e-9b73-a53a1eaaad87" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ThemeParkCloud" generation="1" functional="0" release="0" Id="89ea02d1-91ba-4911-882e-695d2bb694c3" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="ThemeParkCloudGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -82,9 +82,9 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="d50108d3-e16f-441f-bba5-bb0c379069f2" ref="Microsoft.RedDog.Contract\ServiceContract\ThemeParkCloudContract@ServiceDefinition">
+    <implementation Id="57063ce4-c95f-4f09-bddf-5ad7598022f2" ref="Microsoft.RedDog.Contract\ServiceContract\ThemeParkCloudContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="2cc037e9-612b-43d0-94dc-c83f34d8e0df" ref="Microsoft.RedDog.Contract\Interface\WCFServiceWebRole1:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="83d13fed-1dd1-4faa-a9d4-37dc39f87e93" ref="Microsoft.RedDog.Contract\Interface\WCFServiceWebRole1:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/ThemeParkCloud/ThemeParkCloudGroup/WCFServiceWebRole1:Endpoint1" />
           </inPort>

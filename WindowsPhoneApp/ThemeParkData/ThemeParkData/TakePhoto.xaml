@@ -26,12 +26,12 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Capture Photo" x:Name="capturePhotoButton" Margin="0,92,237,470" Click="capturePhotoButton_Click" />
-            <Image HorizontalAlignment="Left" Margin="10,181,0,60" x:Name="imgTakenPicture" Stretch="None"  Width="426" />
-            <Button Content="Choose Photo" Height="72" HorizontalAlignment="Left" Margin="225,92,0,0" x:Name="choosePhotoButton" VerticalAlignment="Top" Width="225" Click="choosePhotoButton_Click" />
-            <Button Content="Save" Height="72" HorizontalAlignment="Left" Margin="290,562,0,0" x:Name="btnSavePicture" VerticalAlignment="Top" Width="160" IsEnabled="False" Click="savePhotoButton_click" />
-            <TextBlock x:Name="ParkDetails" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Grid x:Name="ContentPanel" Margin="14,106,10,0" Grid.RowSpan="2">
+            <Button Content="Capture Photo" x:Name="capturePhotoButton" Margin="0,62,237,528" Click="capturePhotoButton_Click" />
+            <Image HorizontalAlignment="Left" Margin="0,122,0,60" x:Name="imgTakenPicture" Stretch="Uniform"  Width="446" />
+            <Button Content="Choose Photo" Height="72" HorizontalAlignment="Left" Margin="225,62,0,0" x:Name="choosePhotoButton" VerticalAlignment="Top" Width="225" Click="choosePhotoButton_Click" />
+            <Button Content="Save" Height="72" HorizontalAlignment="Left" Margin="290,590,0,0" x:Name="btnSavePicture" VerticalAlignment="Top" Width="160" IsEnabled="False" Click="savePhotoButton_click" />
+            <TextBlock x:Name="ParkDetails" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Fail" VerticalAlignment="Top" Width="456" Height="62"/>
         </Grid>
     </Grid>
 
