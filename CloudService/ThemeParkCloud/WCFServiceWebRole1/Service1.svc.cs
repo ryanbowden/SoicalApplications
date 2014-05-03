@@ -69,6 +69,29 @@ namespace WCFServiceWebRole1
             }
 
             return themeparks.ToArray();
-        }       
+        }
+
+        public bool addProfile(string sid, string name)
+        {
+
+            // code to add a new user profile to SQL database
+            // creates a new instance of our database objects (user table in this case)
+
+            using (var context = new ThemeParkData_Entities())
+            {
+                // add a new object (or row) to our user profile table
+                context.Users.Add(new User()
+               // bind each database column to the parameters we pass in our method
+               // guid, firstname, surname, and email
+                {
+                    ServiceID = sid,
+                    Name = name,
+                });
+
+                // commit changes to the user profile table
+                context.SaveChanges();
+                return true;
+            }
+        }
     }
 }

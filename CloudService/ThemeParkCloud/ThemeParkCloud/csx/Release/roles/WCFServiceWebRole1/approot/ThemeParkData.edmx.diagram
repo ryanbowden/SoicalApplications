@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="76d95f5429ee4007a4253ab827a9a7b0" Name="Diagram1">
         <EntityTypeShape EntityType="ThemeParkData_Model.ThemePark" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThemeParkData_Model.User" Width="1.5" PointX="3.9269146639513384" PointY="14.730005584065806" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

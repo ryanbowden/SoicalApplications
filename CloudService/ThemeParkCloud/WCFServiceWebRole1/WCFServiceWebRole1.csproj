@@ -114,6 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ThemeParkData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>ThemeParkData.tt</DependentUpon>
+    </Compile>
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>

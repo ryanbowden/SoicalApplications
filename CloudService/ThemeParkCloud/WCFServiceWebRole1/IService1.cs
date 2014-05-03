@@ -17,6 +17,9 @@ namespace WCFServiceWebRole1
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.WrappedRequest, UriTemplate = "viewthemeparks?format=xml")]
         ThemeParkList[] viewThemeParksJson();
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest,UriTemplate = "users?sid={sid}&name={Name}")]
+        bool addProfile(string sid, string name);
     }
 
 

@@ -26,5 +26,6 @@ namespace WCFServiceWebRole1
         }
     
         public DbSet<ThemePark> ThemeParks { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

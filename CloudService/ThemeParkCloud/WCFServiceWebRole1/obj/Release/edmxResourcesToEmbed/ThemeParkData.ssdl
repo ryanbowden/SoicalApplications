@@ -2,12 +2,21 @@
 <Schema Namespace="ThemeParkData_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ThemeParkData_ModelStoreContainer">
     <EntitySet Name="ThemeParks" EntityType="ThemeParkData_Model.Store.ThemeParks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="ThemeParkData_Model.Store.Users" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="ThemeParks">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceID" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
 </Schema>
