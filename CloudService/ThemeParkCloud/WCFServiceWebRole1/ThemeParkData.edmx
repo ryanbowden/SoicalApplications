@@ -6,9 +6,19 @@
     <edmx:StorageModels>
     <Schema Namespace="ThemeParkData_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="ThemeParkData_ModelStoreContainer">
+          <EntitySet Name="Photos" EntityType="ThemeParkData_Model.Store.Photos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ThemeParks" EntityType="ThemeParkData_Model.Store.ThemeParks" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="ThemeParkData_Model.Store.Users" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ThemeParkID" Type="int" Nullable="false" />
+          <Property Name="PhotoURL" Type="ntext" Nullable="false" />
+        </EntityType>
         <EntityType Name="ThemeParks">
           <Key>
             <PropertyRef Name="ID" />
@@ -31,6 +41,7 @@
         <EntityContainer Name="ThemeParkData_Entities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="ThemeParks" EntityType="ThemeParkData_Model.ThemePark" />
           <EntitySet Name="Users" EntityType="ThemeParkData_Model.User" />
+          <EntitySet Name="Photos" EntityType="ThemeParkData_Model.Photo" />
         </EntityContainer>
         <EntityType Name="ThemePark">
           <Key>
@@ -46,6 +57,15 @@
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="ServiceID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="ThemeParkID" Nullable="false" />
+          <Property Type="String" Name="PhotoURL" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -66,6 +86,16 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="ThemeParkData_Model.Photo">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+                <ScalarProperty Name="ThemeParkID" ColumnName="ThemeParkID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

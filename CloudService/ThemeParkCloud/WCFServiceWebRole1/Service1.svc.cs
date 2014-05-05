@@ -93,5 +93,101 @@ namespace WCFServiceWebRole1
                 return true;
             }
         }
+
+        public Users[] viewProfilesXML(string sid)
+        {
+            // get the connections string stored in the web.config file as a string
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            // create  new sql connections using the connection string
+            SqlConnection thisConnection = new SqlConnection(connectionString);
+            // create a new sql command called getUsers
+            SqlCommand getUsers = thisConnection.CreateCommand();
+            // create a temp list to store the rows of users returned from the database
+            List<Users> users = new List<Users>();
+            // open the sql connection and construct the select query
+            thisConnection.Open();
+            string sql = "select * from Users where ServiceID=@sid";
+            // paramertise your query to stop sql injections!
+            getUsers.Parameters.AddWithValue("@sid", sid);
+            getUsers.CommandText = sql;
+            // create an sql data adapter using the getUsers query
+            SqlDataAdapter da = new SqlDataAdapter(getUsers);
+            // create a new dataset containing the rows returned from the user_profile table
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Users");
+            // for every row returned call our DataContract in IService1.cs
+            foreach (DataRow dr in ds.Tables["Users"].Rows)
+            {
+                users.Add(new Users()
+                {
+                    Id = Convert.ToInt32(dr[0]),
+                    ServiceID = Convert.ToString(dr[1]),
+                    Name = Convert.ToString(dr[2]),
+                });
+            }
+
+            //Return data for XML output
+            thisConnection.Close();
+            return users.ToArray();
+        }
+
+        public Photos[] viewThemeParkPhotosXML(string themeparkid)
+        {
+            // get the connections string stored in the web.config file as a string
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            // create  new sql connections using the connection string
+            SqlConnection thisConnection = new SqlConnection(connectionString);
+            // create a new sql command called getUsers
+            SqlCommand getUsers = thisConnection.CreateCommand();
+            // create a temp list to store the rows of users returned from the database
+            List<Photos> Photo = new List<Photos>();
+            // open the sql connection and construct the select query
+            thisConnection.Open();
+            string sql = "select * from Photos where ThemeParkID=@themeparkid";
+            // paramertise your query to stop sql injections!
+            getUsers.Parameters.AddWithValue("@themeparkid", themeparkid);
+            getUsers.CommandText = sql;
+            // create an sql data adapter using the getUsers query
+            SqlDataAdapter da = new SqlDataAdapter(getUsers);
+            // create a new dataset containing the rows returned from the user_profile table
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Photos");
+            // for every row returned call our DataContract in IService1.cs
+            foreach (DataRow dr in ds.Tables["Photos"].Rows)
+            {
+                Photo.Add(new Photos()
+                {
+                    ID = Convert.ToInt32(dr[0]),
+                    UserID = Convert.ToInt32(dr[1]),
+                    ThemeParkID = Convert.ToInt32(dr[2]),
+                    PhotoURL = Convert.ToString(dr[3])
+                });
+            }
+            //Return data for XML output
+            thisConnection.Close();
+            return Photo.ToArray();
+        }
+
+        public bool addPhoto(int uid, int tpid, string photourl)
+        {
+            // code to add a new user profile to SQL database
+            // creates a new instance of our database objects (user table in this case)
+            using (var context = new ThemeParkData_Entities())
+            {
+                // add a new object (or row) to our user profile table
+                context.Photos.Add(new Photo()
+                // bind each database column to the parameters we pass in our method
+                // guid, firstname, surname, and email
+                {
+                    UserID = Convert.ToInt32(uid),
+                    ThemeParkID = Convert.ToInt32(tpid),
+                    PhotoURL = photourl
+                });
+
+                // commit changes to the user profile table
+                context.SaveChanges();
+                return true;
+            }
+        }
     }
 }

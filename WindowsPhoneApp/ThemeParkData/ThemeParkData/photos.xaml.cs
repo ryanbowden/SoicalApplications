@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.Xml.Linq;
 
 namespace ThemeParkData
 {
@@ -20,6 +21,51 @@ namespace ThemeParkData
         {
             InitializeComponent();
             BuildLocalizedApplicationBar();
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //get the Theme park Data
+            WebClient ThemeParkPhotos = new WebClient();
+            ThemeParkPhotos.DownloadStringCompleted += ThemeParkPhotos_DownloadStringCompleted;
+            ThemeParkPhotos.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewphotos?format=xml&themeparkid=" + parkID));
+
+        }
+
+        private void ThemeParkPhotos_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                try
+                {
+                    //No errors have been passed now need to take this file and parse it 
+                    //Its in XML format
+                    XDocument xdox = XDocument.Parse(e.Result);
+                    //need a list for them to be put in to
+                    List<Photos> themeparkPhoto = new List<Photos>();
+                    XNamespace ns = "http://schemas.datacontract.org/2004/07/WCFServiceWebRole1";
+                    //Now need to get every element and add it to the list
+                    foreach (XElement item in xdox.Descendants(ns + "Photos"))
+                    {
+                        Photos content = new Photos();
+                        content.ID = Convert.ToInt32(item.Element(ns + "ID").Value);
+                        content.PhotoURL = Convert.ToString(item.Element(ns + "PhotoURL").Value);
+                        //content.ID = Convert.ToInt32(item.Element(ns + "id").Value);
+                        //content.ThemeParkName = item.Element(ns + "name").Value.ToString();
+                        themeparkPhoto.Add(content);
+                    }
+
+                    ThemeParkPhoto.ItemsSource = themeparkPhoto.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                //There an Error
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -36,9 +82,11 @@ namespace ThemeParkData
             {
                 parkID = Convert.ToInt32(NavigationContext.QueryString["pID"]);
                 parkName = NavigationContext.QueryString["pName"].ToString();
-                PageName.Text = parkID.ToString()+" : " + parkName;
+                PageName.Text = parkName;
             }
         }
+
+        
 
         private void BuildLocalizedApplicationBar()
         {
