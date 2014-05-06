@@ -162,6 +162,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Images\refresh.png" />
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\ThemeParkPhoto_Service\Service1.wsdl" />
     <None Include="Service References\ThemeParkPhoto_Service\Service1.xsd">

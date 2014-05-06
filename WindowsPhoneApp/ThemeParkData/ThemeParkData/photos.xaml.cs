@@ -23,14 +23,6 @@ namespace ThemeParkData
             BuildLocalizedApplicationBar();
         }
 
-        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            //get the Theme park Data
-            WebClient ThemeParkPhotos = new WebClient();
-            ThemeParkPhotos.DownloadStringCompleted += ThemeParkPhotos_DownloadStringCompleted;
-            ThemeParkPhotos.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewphotos?format=xml&themeparkid=" + parkID));
-
-        }
 
         private void ThemeParkPhotos_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
@@ -43,6 +35,7 @@ namespace ThemeParkData
                     XDocument xdox = XDocument.Parse(e.Result);
                     //need a list for them to be put in to
                     List<Photos> themeparkPhoto = new List<Photos>();
+                    themeparkPhoto.Clear();
                     XNamespace ns = "http://schemas.datacontract.org/2004/07/WCFServiceWebRole1";
                     //Now need to get every element and add it to the list
                     foreach (XElement item in xdox.Descendants(ns + "Photos"))
@@ -54,8 +47,9 @@ namespace ThemeParkData
                         //content.ThemeParkName = item.Element(ns + "name").Value.ToString();
                         themeparkPhoto.Add(content);
                     }
-
+                    ThemeParkPhoto.ItemsSource = null;
                     ThemeParkPhoto.ItemsSource = themeparkPhoto.ToList();
+                    //Delete all the stuff
                 }
                 catch (Exception ex)
                 {
@@ -83,10 +77,19 @@ namespace ThemeParkData
                 parkID = Convert.ToInt32(NavigationContext.QueryString["pID"]);
                 parkName = NavigationContext.QueryString["pName"].ToString();
                 PageName.Text = parkName;
+                GetThemeParkPhotos();
             }
         }
 
-        
+
+        public void GetThemeParkPhotos()
+        {
+
+            WebClient ThemeParkPhotos = new WebClient();
+            ThemeParkPhotos.DownloadStringCompleted += ThemeParkPhotos_DownloadStringCompleted;
+            ThemeParkPhotos.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewphotos?format=xml&themeparkid=" + parkID));
+            //MessageBox.Show("Test if this works"+parkID);
+        }
 
         private void BuildLocalizedApplicationBar()
         {
@@ -100,6 +103,16 @@ namespace ThemeParkData
             AddButton.Text = "Add Photo";
             ApplicationBar.Buttons.Add(AddButton);
             AddButton.Click +=AddButton_Click;
+            ApplicationBarIconButton RefreshButton = new ApplicationBarIconButton();
+            RefreshButton.IconUri = new Uri("/Images/refresh.png", UriKind.Relative);
+            RefreshButton.Text = "Refresh";
+            //ApplicationBar.Buttons.Add(RefreshButton);
+            RefreshButton.Click += RefreshButton_Click;
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            GetThemeParkPhotos();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
