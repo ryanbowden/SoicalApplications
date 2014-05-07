@@ -122,6 +122,13 @@ namespace ThemeParkData
 
         private void savePhotoButton_click(object sender, RoutedEventArgs e)
         {
+            //First disable all the buttons
+            btnSavePicture.IsEnabled = false;
+            capturePhotoButton.IsEnabled = false;
+            choosePhotoButton.IsEnabled = false;
+            //Show progress bar so users know something happening
+            progressbar.Visibility = System.Windows.Visibility.Visible;
+
             try
             {
                 // create new writeable image and set it's value to our image on screen
@@ -149,6 +156,8 @@ namespace ThemeParkData
                 MessageBox.Show(ex.ToString());
             }
 
+
+
         }
 
         // code to launch when image data has been uploaded to server, can return error so handle it
@@ -173,7 +182,7 @@ namespace ThemeParkData
             else
             {
                 //It Failed :'(
-                MessageBox.Show("Problem Image Upload", "Unsuccessful", MessageBoxButton.OK);
+                MessageBox.Show(e.Error.Message, "Unsuccessful", MessageBoxButton.OK);
             }
         }
 
@@ -187,6 +196,12 @@ namespace ThemeParkData
             else
             {
                 MessageBox.Show("Issues With Adding to Database", "Unsuccessful", MessageBoxButton.OK);
+                //Enable all the buttons
+                btnSavePicture.IsEnabled = true;
+                capturePhotoButton.IsEnabled = true;
+                choosePhotoButton.IsEnabled = true;
+                //Show progress bar so users know something happening
+                progressbar.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
 

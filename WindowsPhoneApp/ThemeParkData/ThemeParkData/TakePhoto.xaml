@@ -32,6 +32,7 @@
             <Button Content="Choose Photo" Height="72" HorizontalAlignment="Left" Margin="225,62,0,0" x:Name="choosePhotoButton" VerticalAlignment="Top" Width="225" Click="choosePhotoButton_Click" />
             <Button Content="Save" Height="72" HorizontalAlignment="Left" Margin="290,590,0,0" x:Name="btnSavePicture" VerticalAlignment="Top" Width="160" IsEnabled="False" Click="savePhotoButton_click" />
             <TextBlock x:Name="ParkDetails" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Fail" VerticalAlignment="Top" Width="456" Height="62"/>
+            <ProgressBar x:Name="progressbar" HorizontalAlignment="Left" Height="18" Margin="-13,44,0,0" VerticalAlignment="Top" Width="469" Visibility="Collapsed" IsIndeterminate="True"/>
         </Grid>
     </Grid>
 

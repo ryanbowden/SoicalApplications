@@ -35,7 +35,6 @@ namespace ThemeParkData
                     XDocument xdox = XDocument.Parse(e.Result);
                     //need a list for them to be put in to
                     List<Photos> themeparkPhoto = new List<Photos>();
-                    themeparkPhoto.Clear();
                     XNamespace ns = "http://schemas.datacontract.org/2004/07/WCFServiceWebRole1";
                     //Now need to get every element and add it to the list
                     foreach (XElement item in xdox.Descendants(ns + "Photos"))
@@ -47,8 +46,7 @@ namespace ThemeParkData
                         //content.ThemeParkName = item.Element(ns + "name").Value.ToString();
                         themeparkPhoto.Add(content);
                     }
-                    ThemeParkPhoto.ItemsSource = null;
-                    ThemeParkPhoto.ItemsSource = themeparkPhoto.ToList();
+                    this.ThemeParkPhoto.ItemsSource = themeparkPhoto.ToList();
                     //Delete all the stuff
                 }
                 catch (Exception ex)
@@ -84,10 +82,12 @@ namespace ThemeParkData
 
         public void GetThemeParkPhotos()
         {
+            //Random Number so get around a cache the file
+            Random random = new Random();
 
             WebClient ThemeParkPhotos = new WebClient();
             ThemeParkPhotos.DownloadStringCompleted += ThemeParkPhotos_DownloadStringCompleted;
-            ThemeParkPhotos.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewphotos?format=xml&themeparkid=" + parkID));
+            ThemeParkPhotos.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewphotos?format=xml&themeparkid=" + parkID+"&randomnumber="+random.Next().ToString()));
             //MessageBox.Show("Test if this works"+parkID);
         }
 
@@ -104,11 +104,11 @@ namespace ThemeParkData
             ApplicationBar.Buttons.Add(AddButton);
             AddButton.Click +=AddButton_Click;
             //Dont add refresh button as it does not work at this time :(
-            /*ApplicationBarIconButton RefreshButton = new ApplicationBarIconButton();
+            ApplicationBarIconButton RefreshButton = new ApplicationBarIconButton();
             RefreshButton.IconUri = new Uri("/Images/refresh.png", UriKind.Relative);
             RefreshButton.Text = "Refresh";
             ApplicationBar.Buttons.Add(RefreshButton);
-            RefreshButton.Click += RefreshButton_Click;*/
+            RefreshButton.Click += RefreshButton_Click;
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)
