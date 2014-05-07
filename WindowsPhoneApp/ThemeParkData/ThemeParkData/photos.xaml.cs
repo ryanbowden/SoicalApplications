@@ -103,11 +103,12 @@ namespace ThemeParkData
             AddButton.Text = "Add Photo";
             ApplicationBar.Buttons.Add(AddButton);
             AddButton.Click +=AddButton_Click;
-            ApplicationBarIconButton RefreshButton = new ApplicationBarIconButton();
+            //Dont add refresh button as it does not work at this time :(
+            /*ApplicationBarIconButton RefreshButton = new ApplicationBarIconButton();
             RefreshButton.IconUri = new Uri("/Images/refresh.png", UriKind.Relative);
             RefreshButton.Text = "Refresh";
-            //ApplicationBar.Buttons.Add(RefreshButton);
-            RefreshButton.Click += RefreshButton_Click;
+            ApplicationBar.Buttons.Add(RefreshButton);
+            RefreshButton.Click += RefreshButton_Click;*/
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)

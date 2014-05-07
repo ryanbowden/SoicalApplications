@@ -42,10 +42,17 @@ namespace ThemeParkData
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
             //get the Theme park Data
-            WebClient ThemeParksNames = new WebClient();
-            ThemeParksNames.DownloadStringCompleted +=ThemeParksNames_DownloadStringCompleted;
-            ThemeParksNames.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewthemeparks?format=xml"));
+            try
+            {
 
+                WebClient ThemeParksNames = new WebClient();
+                ThemeParksNames.DownloadStringCompleted += ThemeParksNames_DownloadStringCompleted;
+                ThemeParksNames.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewthemeparks?format=xml"));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Network Failure");
+            }
         }
 
         void ThemeParksNames_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
