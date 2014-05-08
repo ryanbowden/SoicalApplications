@@ -84,11 +84,18 @@ namespace ThemeParkData
         {
             //Random Number so get around a cache the file
             Random random = new Random();
+            try
+            {
 
-            WebClient ThemeParkPhotos = new WebClient();
-            ThemeParkPhotos.DownloadStringCompleted += ThemeParkPhotos_DownloadStringCompleted;
-            ThemeParkPhotos.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewphotos?format=xml&themeparkid=" + parkID+"&randomnumber="+random.Next().ToString()));
-            //MessageBox.Show("Test if this works"+parkID);
+                WebClient ThemeParkPhotos = new WebClient();
+                ThemeParkPhotos.DownloadStringCompleted += ThemeParkPhotos_DownloadStringCompleted;
+                ThemeParkPhotos.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewphotos?format=xml&themeparkid=" + parkID + "&randomnumber=" + random.Next().ToString()));
+                //MessageBox.Show("Test if this works"+parkID);
+            }
+            catch
+            {
+                MessageBox.Show("A network failure has happened!");
+            }
         }
 
         private void BuildLocalizedApplicationBar()
@@ -119,10 +126,7 @@ namespace ThemeParkData
         private void AddButton_Click(object sender, EventArgs e)
         {
             //need to send them to add a photo page with details.
-
             NavigationService.Navigate(new Uri("/TakePhoto.xaml?pID=" + parkID + "&pName=" + parkName, UriKind.Relative));
-
-  
         }
     }
 }

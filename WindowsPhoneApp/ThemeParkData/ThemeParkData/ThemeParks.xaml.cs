@@ -20,22 +20,24 @@ namespace ThemeParkData
             InitializeComponent();
             //Get user Settings
             InitializeSettings();
-            //Get theme Park Names
         }
 
         private void InitializeSettings()
         {
+            //First set up the Strings to get User details
             string UserID;
             string UserName;
             // add logic here to check isolated storage/protected class contains valid for userid/token
             //This will check to see if the person has logged in before
             if (IsolatedStorageSettings.ApplicationSettings.TryGetValue("UserID", out UserID) && IsolatedStorageSettings.ApplicationSettings.TryGetValue("UserName", out UserName))
             {
+                //Add this to the page to personaise the page for them
                 PersonName.Text = "Welcome " + UserName;
             }
             else
             {
-                //Should not get here!
+                //Should not be here!
+                //Proberly should send uers back to log in screen?
             }
         }
 
@@ -44,12 +46,11 @@ namespace ThemeParkData
             //get the Theme park Data
             try
             {
-
                 WebClient ThemeParksNames = new WebClient();
                 ThemeParksNames.DownloadStringCompleted += ThemeParksNames_DownloadStringCompleted;
                 ThemeParksNames.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewthemeparks?format=xml"));
             }
-            catch(Exception ex)
+            catch
             {
                 MessageBox.Show("Network Failure");
             }
@@ -104,13 +105,7 @@ namespace ThemeParkData
             //we need to get the park ID and Name
             int parkID = (parkList.SelectedItem as ThemeParksClass).ID;
             string parkName = (parkList.SelectedItem as ThemeParksClass).ThemeParkName;
-
             NavigationService.Navigate(new Uri("/photos.xaml?pID=" + parkID + "&pName=" + parkName, UriKind.Relative));
-
-
         }
-
-
-
     }
 }

@@ -35,10 +35,17 @@ namespace ThemeParkData
 
 
             string UserId = IsolatedStorageSettings.ApplicationSettings["UserID"].ToString();
-            WebClient userProfiles = new WebClient();
-            userProfiles.DownloadStringCompleted += userProfiles_DownloadStringCompleted;
-            userProfiles.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewusers?format=xml&sid=" + UserId));
-        }
+            try
+            {
+                WebClient userProfiles = new WebClient();
+                userProfiles.DownloadStringCompleted += userProfiles_DownloadStringCompleted;
+                userProfiles.DownloadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/viewusers?format=xml&sid=" + UserId));
+            }
+            catch
+            {
+                MessageBox.Show("Sorry there is a Network Failure");
+            }
+            }
 
         private void userProfiles_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
@@ -175,9 +182,17 @@ namespace ThemeParkData
                 //now the theme park ID
                 int ThemeParkID = parkID;
                 //Now need the User ID that will be added to the system.
-                WebClient addPhoto = new WebClient();
-                addPhoto.UploadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/photoadd?uid=" + UserID + "&tpid=" + ThemeParkID + "&photourl=" + URL), "POST");
-                addPhoto.UploadStringCompleted += addPhoto_UploadStringCompleted;
+                try
+                {
+
+                    WebClient addPhoto = new WebClient();
+                    addPhoto.UploadStringAsync(new Uri("http://themeparkcloud.cloudapp.net/Service1.svc/photoadd?uid=" + UserID + "&tpid=" + ThemeParkID + "&photourl=" + URL), "POST");
+                    addPhoto.UploadStringCompleted += addPhoto_UploadStringCompleted;
+                }
+                catch
+                {
+                    MessageBox.Show("A network Failure has occured");
+                }
             }
             else
             {
@@ -204,9 +219,5 @@ namespace ThemeParkData
                 progressbar.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
-
-  
-
-
     }
 }

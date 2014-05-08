@@ -59,33 +59,35 @@ namespace ThemeParkData
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
-            //Check Whether someone is login
+            //Check Whether someone is logged in or not
             RootFrame.Navigating += new NavigatingCancelEventHandler(RootFrame_Navigating);
 
         }
 
         void RootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
         {
-            //Only Care if they are going to MainPage
+            //Only Care if they are going to MainPage which by default they should be
             if (e.Uri.ToString().Contains("/MainPage.xaml") != true)
             {
+                //The are not going to the main page so can let them on their way
                 return;
             }
+            //Cancel where the application going to send the user as we are going to send them elsewhere
             e.Cancel = true;
 
+            //So need to start sending the user somewhere eles
             RootFrame.Dispatcher.BeginInvoke(delegate
             {
-                //Check for UserID
+                //Check for UserID if they have UserId that mean they have already logged in so there for dont need to go to log in page
                 if (System.IO.IsolatedStorage.IsolatedStorageSettings.ApplicationSettings.Contains("UserID"))
                 {
-                    //If it is avaible send them to the site
+                    //There is an UserId saved therefor they have logged in before so send them straight into the app
                     RootFrame.Navigate(new Uri("/ThemeParks.xaml", UriKind.Relative));
                 }
                 else
                 {
-                    //Send them to Login Page
+                    //the user is not logged in or the details are not saved. Need to get them to login.
                     RootFrame.Navigate(new Uri("/Login.xaml", UriKind.Relative));
-
                 }
             });
         }
